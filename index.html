@@ -1,86 +1,339 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="et">
 <head>
-  <meta charset="UTF-8">
-  <title>Dmitri Koduleht</title>
-  <link rel="stylesheet" href="koduleht2.css">
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js" integrity="sha256-AlTido85uXPlSyyaZNsjJXeCs07eSv3r43kyCVc8ChI=" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Dmitri Koduleht</title>
+    <link rel="stylesheet" href="koduleht2.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js" integrity="sha256-AlTido85uXPlSyyaZNsjJXeCs07eSv3r43kyCVc8ChI=" crossorigin="anonymous"></script>
 
-  <script>
-    function punaseks(){
-      $('#tekst').css('color','red');
-    }
-    function siniseks(){
-      $('h1').css('color','blue');
-    }
-    function mustaks(){
-      $('h1, #tekst').css('color','black');
-    }
-    var lahti = true;
-    function naitapeida(){
-      $('#tekst').slideToggle();
-      lahti = !lahti;
-      $('#knopka').val(lahti ? "Peida" : "Näita");
-    }
-    function slideDownText() {
-      $('h1, #tekst').slideDown(1000);
-    }
-    function slideUpText() {
-      $('h1, #tekst').slideUp(1000);
-    }
-    function stopAnimation() {
-      $('h1, #tekst').stop(true, true);
-    }
-    function bounceImage() {
-      $('#pilt').effect("bounce", { times: 3, distance: 20 }, 800);
-    }
-    function start(){
-      $('#tekst').mouseenter(punaseks);
-      $('h1').mouseenter(siniseks);
-      $('h1, #tekst').mouseleave(mustaks);
-      $('#pilt, #tekst, h1').draggable();
-    }
-    $(document).ready(function() {
-      $('body').on('mouseenter', '#tekst', punaseks);
-      $('body').on('mouseenter', 'h1', siniseks);
-      $('body').on('mouseleave', '#tekst, h1', mustaks);
-      $('body').on('click', '#pilt', bounceImage);
-    });
-  </script>
+    <script>
+        // jQuery Functions from your example
+        function punaseks(){
+            $('#tekst').css('color','red');
+        }
+
+        function siniseks(){
+            $('h1').css('color','blue');
+        }
+
+        function mustaks(){
+            $('h1, #tekst').css('color','black');
+        }
+
+        var lahti = true;
+        function naitapeida(){
+            $('#tekst').slideToggle();
+            if(lahti){
+                lahti = false;
+                $('#knopka').val("Näita");
+            } else{
+                lahti = true;
+                $('#knopka').val("Peida");
+            }
+        }
+
+        function slideDownText() {
+            $('h1, #tekst').slideDown(1000);
+        }
+
+        function slideUpText() {
+            $('h1, #tekst').slideUp(1000);
+        }
+
+        function stopAnimation() {
+            $('h1, #tekst').stop(true, true);
+        }
+
+        function bounceImage() {
+            $('#pilt').effect("bounce", { times: 3, distance: 20 }, 800);
+        }
+
+        function start(){
+            $('#tekst').mouseenter(punaseks);
+            $('h1').mouseenter(siniseks);
+            $('h1, #tekst').mouseleave(mustaks);
+            $('#pilt').draggable();
+            $('#tekst').draggable();
+            $('h1').draggable();
+        }
+
+        // Add hover effect to highlight text in any section dynamically
+        function highlightText() {
+            $('section').on('mouseenter', 'p, h1, div', function() {
+                $(this).css('background-color', 'yellow');
+            }).on('mouseleave', 'p, h1, div', function() {
+                $(this).css('background-color', 'transparent');
+            });
+        }
+
+        // Tab Content Data
+        const contentData = {
+            kodu: `<h2>Info Minust....</h2>
+                <div>Ma olen õpilane. Minu hoobid on mängida arvuti mänge. Ma õpin Titpv24 rühmas.</div>`,
+            sonavara: `<h2>Sõnavara</h2>
+                <div>päis - заголовок
+                <br>jalus - подвал
+                <br>keera alla - прокрути вниз
+                <br>keera üles - прокрути наверх
+                <br>lohista - перетащи
+                <br>laadi alla - скачай
+                <br>laadi üles - загрузить
+                <br>veebilehitseja - браузер
+                <br>käivita - запустить</div>`,
+            tehtud_tood: `<h2>Tehtud Tööd</h2>
+                <div class="link-container">
+                    <div><a href="js/vormistlugemine.html" target="_blank">Vormist lugemine</a></div>
+                    <a href="joonis.html" target="_blank">Joonistama</a>
+                    <a href="vormid.html" target="_blank">Vormid</a>
+                    <a href="minuJoonis.html" target="_blank">MinuJoonis</a>
+                    <a href="pohileht.html" target="_blank">jQuery</a>
+                </div>`,
+            kasutatud_lingid: `<h2>Kasulikud Lingid</h2>
+                <div>Praegu ei ole linke.</div>`,
+            jquery_commands: `<h2>jQuery Commands Used</h2>
+                <ul>
+                    <li><strong>$('#tekst').css('color', 'red');</strong> - Changes the color of the text in the #tekst div to red when mouse enters.</li>
+                    <li><strong>$('h1').css('color', 'blue');</strong> - Changes the color of the <code>h1</code> header to blue when mouse enters.</li>
+                    <li><strong>$('#tekst').slideToggle();</strong> - Toggles the visibility of the #tekst section (slide down or up).</li>
+                    <li><strong>$('h1, #tekst').slideDown(1000);</strong> - Slides down the <code>h1</code> and #tekst elements over 1000ms.</li>
+                    <li><strong>$('h1, #tekst').slideUp(1000);</strong> - Slides up the <code>h1</code> and #tekst elements over 1000ms.</li>
+                    <li><strong>$('h1, #tekst').stop(true, true);</strong> - Stops all animations on <code>h1</code> and #tekst elements.</li>
+                    <li><strong>$('#pilt').effect('bounce', { times: 3, distance: 20 }, 800);</strong> - Applies a bouncing effect to the image.</li>
+                    <li><strong>$('#pilt').draggable();</strong> - Makes the image draggable on the page.</li>
+                    <li><strong>$('#tekst').draggable();</strong> - Makes the #tekst section draggable.</li>
+                    <li><strong>$('h1').draggable();</strong> - Makes the <code>h1</code> element draggable.</li>
+                </ul>`
+        };
+
+        function showTab(tabName) {
+            document.getElementById('content').innerHTML = `<section>${contentData[tabName]}</section>`;
+            highlightText(); // Apply text highlight function to new content
+        }
+
+        // Apply jQuery functions to all dynamic content sections
+        $(document).ready(function() {
+            // Ensure buttons work in all sections
+            $('body').on('mouseenter', '#tekst', punaseks);
+            $('body').on('mouseenter', 'h1', siniseks);
+            $('body').on('mouseleave', '#tekst, h1', mustaks);
+            $('body').on('click', '#pilt', bounceImage);
+
+            highlightText(); // Add text highlight functionality to dynamic sections
+        });
+    </script>
 </head>
 <body onload="start()">
 <header>
-  <h1>Dmitri Kovalenko tööde leht</h1>
+    <h1 class="rounded-name">Dmitri Kovalenko tööde leht</h1>
 </header>
+
 <nav>
-  <ul>
-    <li><a href="kodu.html">Kodu</a></li>
-    <li><a href="sonavara.html">Sõnavara</a></li>
-    <li><a href="tehtud_tood.html">Tehtud tööd</a></li>
-    <li><a href="kasutatud_lingid.html">Kasulikud lingid</a></li>
-    <li><a href="jquery_commands.html">jQuery Commands</a></li>
-  </ul>
+    <ul>
+        <li><a onclick="showTab('kodu')">Kodu</a></li>
+        <li><a onclick="showTab('sonavara')">Sõnavara</a></li>
+        <li><a onclick="showTab('tehtud_tood')">Tehtud tööd</a></li>
+        <li><a onclick="showTab('kasutatud_lingid')">Kasulikud lingid</a></li>
+        <li><a onclick="showTab('jquery_commands')">jQuery Commands</a></li>
+    </ul>
 </nav>
-<main>
-  <section>
-    <h2>Info Minust....</h2>
-    <div>Ma olen õpilane. Minu hoobid on mängida arvuti mänge. Ma õpin Titpv24 rühmas.</div>
-  </section>
+
+<main id="content">
+    <section>
+        <h2>Info Minust....</h2>
+        <div>Ma olen õpilane. Minu hoobid on mängida arvuti mänge. Ma õpin Titpv24 rühmas.</div>
+    </section>
 </main>
+
 <footer>
-  <strong>Dmitri Kovalenko &copy; 2024</strong>
+    <strong>Dmitri Kovalenko &copy; 2024</strong>
 </footer>
-<div>
-  <input type="button" value="--->" onclick="$('#tekst, h1').animate({left:'600px'}, 2500)">
-  <input type="button" value="<---" onclick="$('#tekst, h1').animate({left:'0px'}, 2500)">
-  <input type="button" value="peida" id="knopka" onclick="naitapeida()">
-  <input type="button" value="Slide Down" onclick="slideDownText()">
-  <input type="button" value="Slide Up" onclick="slideUpText()">
-  <input type="button" value="Stop" onclick="stopAnimation()">
-  <br>
-  <h1>Click on image to make it bounce</h1>
-  <img src="IMG.png" alt="den" id="pilt" width="250px" onclick="bounceImage()">
+
+<!-- jQuery Buttons and Image -->
+<div id="content-buttons">
+</div>
+<input type="button" value="--->"
+       onclick="$('#tekst, h1').animate({left:'600px'}, 2500)">
+<input type="button" value="<---"
+       onclick="$('#tekst, h1').animate({left:'0px'}, 2500)">
+<input type="button" value="peida" id="knopka" onclick="naitapeida()">
+<input type="button" value="Slide Down" onclick="slideDownText()">
+<input type="button" value="Slide Up" onclick="slideUpText()">
+<input type="button" value="Stop" onclick="stopAnimation()">
+<br>
+<h1>click on image to make it bounce</h1>
+<img src="IMG.png" alt="den" id="pilt" width="250px" onclick="bounceImage()">
 </div>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <title>Dmitri Koduleht</title>
+    <link rel="stylesheet" href="koduleht2.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js" integrity="sha256-AlTido85uXPlSyyaZNsjJXeCs07eSv3r43kyCVc8ChI=" crossorigin="anonymous"></script>
+
+    <script>
+        // jQuery Functions from your example
+        function punaseks(){
+            $('#tekst').css('color','red');
+        }
+
+        function siniseks(){
+            $('h1').css('color','blue');
+        }
+
+        function mustaks(){
+            $('h1, #tekst').css('color','black');
+        }
+
+        var lahti = true;
+        function naitapeida(){
+            $('#tekst').slideToggle();
+            if(lahti){
+                lahti = false;
+                $('#knopka').val("Näita");
+            } else{
+                lahti = true;
+                $('#knopka').val("Peida");
+            }
+        }
+
+        function slideDownText() {
+            $('h1, #tekst').slideDown(1000);
+        }
+
+        function slideUpText() {
+            $('h1, #tekst').slideUp(1000);
+        }
+
+        function stopAnimation() {
+            $('h1, #tekst').stop(true, true);
+        }
+
+        function bounceImage() {
+            $('#pilt').effect("bounce", { times: 3, distance: 20 }, 800);
+        }
+
+        function start(){
+            $('#tekst').mouseenter(punaseks);
+            $('h1').mouseenter(siniseks);
+            $('h1, #tekst').mouseleave(mustaks);
+            $('#pilt').draggable();
+            $('#tekst').draggable();
+            $('h1').draggable();
+        }
+
+        // Add hover effect to highlight text in any section dynamically
+        function highlightText() {
+            $('section').on('mouseenter', 'p, h1, div', function() {
+                $(this).css('background-color', 'yellow');
+            }).on('mouseleave', 'p, h1, div', function() {
+                $(this).css('background-color', 'transparent');
+            });
+        }
+
+        // Tab Content Data
+        const contentData = {
+            kodu: `<h2>Info Minust....</h2>
+                <div>Ma olen õpilane. Minu hoobid on mängida arvuti mänge. Ma õpin Titpv24 rühmas.</div>`,
+            sonavara: `<h2>Sõnavara</h2>
+                <div>päis - заголовок
+                <br>jalus - подвал
+                <br>keera alla - прокрути вниз
+                <br>keera üles - прокрути наверх
+                <br>lohista - перетащи
+                <br>laadi alla - скачай
+                <br>laadi üles - загрузить
+                <br>veebilehitseja - браузер
+                <br>käivita - запустить</div>`,
+            tehtud_tood: `<h2>Tehtud Tööd</h2>
+                <div class="link-container">
+                    <div><a href="vormistlugemine.html" target="_blank">Vormist lugemine</a></div>
+                    <a href="joonis.html" target="_blank">Joonistama</a>
+                    <a href="vormid.html" target="_blank">Vormid</a>
+                    <a href="minuJoonis.html" target="_blank">MinuJoonis</a>
+                    <a href="pohileht.html" target="_blank">jQuery</a>
+                </div>`,
+            kasutatud_lingid: `<h2>Kasulikud Lingid</h2>
+                <div>Praegu ei ole linke.</div>`,
+            jquery_commands: `<h2>jQuery Commands Used</h2>
+                <ul>
+                    <li><strong>$('#tekst').css('color', 'red');</strong> - Changes the color of the text in the #tekst div to red when mouse enters.</li>
+                    <li><strong>$('h1').css('color', 'blue');</strong> - Changes the color of the <code>h1</code> header to blue when mouse enters.</li>
+                    <li><strong>$('#tekst').slideToggle();</strong> - Toggles the visibility of the #tekst section (slide down or up).</li>
+                    <li><strong>$('h1, #tekst').slideDown(1000);</strong> - Slides down the <code>h1</code> and #tekst elements over 1000ms.</li>
+                    <li><strong>$('h1, #tekst').slideUp(1000);</strong> - Slides up the <code>h1</code> and #tekst elements over 1000ms.</li>
+                    <li><strong>$('h1, #tekst').stop(true, true);</strong> - Stops all animations on <code>h1</code> and #tekst elements.</li>
+                    <li><strong>$('#pilt').effect('bounce', { times: 3, distance: 20 }, 800);</strong> - Applies a bouncing effect to the image.</li>
+                    <li><strong>$('#pilt').draggable();</strong> - Makes the image draggable on the page.</li>
+                    <li><strong>$('#tekst').draggable();</strong> - Makes the #tekst section draggable.</li>
+                    <li><strong>$('h1').draggable();</strong> - Makes the <code>h1</code> element draggable.</li>
+                </ul>`
+        };
+
+        function showTab(tabName) {
+            document.getElementById('content').innerHTML = `<section>${contentData[tabName]}</section>`;
+            highlightText(); // Apply text highlight function to new content
+        }
+
+        // Apply jQuery functions to all dynamic content sections
+        $(document).ready(function() {
+            // Ensure buttons work in all sections
+            $('body').on('mouseenter', '#tekst', punaseks);
+            $('body').on('mouseenter', 'h1', siniseks);
+            $('body').on('mouseleave', '#tekst, h1', mustaks);
+            $('body').on('click', '#pilt', bounceImage);
+
+            highlightText(); // Add text highlight functionality to dynamic sections
+        });
+    </script>
+</head>
+<body onload="start()">
+<header>
+    <h1 class="rounded-name">Dmitri Kovalenko tööde leht</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a onclick="showTab('kodu')">Kodu</a></li>
+        <li><a onclick="showTab('sonavara')">Sõnavara</a></li>
+        <li><a onclick="showTab('tehtud_tood')">Tehtud tööd</a></li>
+        <li><a onclick="showTab('kasutatud_lingid')">Kasulikud lingid</a></li>
+        <li><a onclick="showTab('jquery_commands')">jQuery Commands</a></li>
+    </ul>
+</nav>
+
+<main id="content">
+    <section>
+        <h2>Info Minust....</h2>
+        <div>Ma olen õpilane. Minu hoobid on mängida arvuti mänge. Ma õpin Titpv24 rühmas.</div>
+    </section>
+</main>
+
+<footer>
+    <strong>Dmitri Kovalenko &copy; 2024</strong>
+</footer>
+
+<!-- jQuery Buttons and Image -->
+<div id="content-buttons">
+</div>
+<input type="button" value="--->"
+       onclick="$('#tekst, h1').animate({left:'600px'}, 2500)">
+<input type="button" value="<---"
+       onclick="$('#tekst, h1').animate({left:'0px'}, 2500)">
+<input type="button" value="peida" id="knopka" onclick="naitapeida()">
+<input type="button" value="Slide Down" onclick="slideDownText()">
+<input type="button" value="Slide Up" onclick="slideUpText()">
+<input type="button" value="Stop" onclick="stopAnimation()">
+<br>
+<h1>click on image to make it bounce</h1>
+<img src="den.png" alt="den" id="pilt" width="250px" onclick="bounceImage()">
+</div>
+</body>
+</html>
+>>>>>>> edbc16e808919f39f21a3ed61672c6530f6ed08d
