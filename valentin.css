@@ -1,0 +1,103 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ff99cc, #ff6666); /* Gradient background */
+    color: white; /* Set text color to white for contrast */
+}
+
+.image-container {
+    display: block;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+
+.heart {
+    font-size: 50px;
+    display: inline-block;
+    cursor: grab;
+}
+
+.heart-item {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.image-container {
+    display: block;
+    margin-top: 20px;
+}
+
+.image-container img {
+    width: 300px;
+    margin: 25px;
+    display: none; /* Initially hide the images */
+}
+
+.buttons {
+    margin-bottom: 20px;
+}
+
+/* Style for the "Show Heart" button */
+.showButton {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.showButton:hover {
+    background-color: #ff3385;
+}
+
+/* Style for the "Hide Heart" button */
+.hideButton {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: none;
+}
+
+.hideButton:hover {
+    background-color: #cc0000;
+}
+
+#deleteHeart {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#deleteHeart:hover {
+    background-color: #cc0000;
+}
+
+#randomMessage {
+    font-size: 18px;
+    color: #ff69b4;  /* Pink text color for contrast */
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);  /* Semi-transparent white background */
+    border-radius: 10px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;  /* Ensure it's above other elements */
+}

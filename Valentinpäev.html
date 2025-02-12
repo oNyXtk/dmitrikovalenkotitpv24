@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Fun</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="valentin.css">
+</head>
+<body>
+<h1>Valentin Päev ❤️</h1>
+
+<!-- Draggable Main Heart -->
+<div class="heart draggable">❤️</div>
+<br><br>
+
+<!-- Buttons for images and random text -->
+<div class="buttons">
+    <button id="toggleImages">Show/Hide Hearts</button>
+    <button id="randomText">Random Valentine Message</button>
+</div>
+
+<!-- Image Container -->
+<div class="image-container">
+    <!-- Image 1 -->
+    <div class="heart-item" id="violet">
+        <img src="violet.png" alt="violet" class="draggable">
+        <button class="showButton" data-target="violet">Show </button>
+        <button class="hideButton" data-target="violet">Hide </button>
+    </div>
+    <!-- Image 2 -->
+    <div class="heart-item" id="heart1">
+        <img src="Heart.png" alt="Heart 1" class="draggable">
+        <button class="showButton" data-target="heart1">Show </button>
+        <button class="hideButton" data-target="heart1">Hide </button>
+    </div>
+    <!-- Image 3 -->
+    <div class="heart-item" id="heart2">
+        <img src="t7vd.png" alt="Heart 2" class="draggable">
+        <button class="showButton" data-target="heart2">Show </button>
+        <button class="hideButton" data-target="heart2">Hide </button>
+    </div>
+    <!-- Image 4 -->
+    <div class="heart-item" id="heart3">
+        <img src="heart2.png" alt="Heart 3" class="draggable">
+        <button class="showButton" data-target="heart3">Show </button>
+        <button class="hideButton" data-target="heart3">Hide </button>
+    </div>
+    <!-- Image 5 -->
+    <div class="heart-item" id="heart4">
+        <img src="G.png" alt="Heart 4" class="draggable">
+        <button class="showButton" data-target="heart4">Show </button>
+        <button class="hideButton" data-target="heart4">Hide </button>
+    </div>
+</div>
+
+<br>
+<!-- Delete Button for Main Heart -->
+<button id="deleteHeart">Delete Main Heart</button>
+
+<!-- Random Valentine Text -->
+<div id="randomMessage" style="margin-top: 20px; font-size: 18px;"></div>
+
+<footer>
+    <p>Autorid: Dmitri Kovalenko</p>
+</footer>
+
+<script>
+    $(document).ready(function() {
+        // Make the hearts draggable
+        $(".draggable").draggable();
+
+        // Show/Hide images container
+        $("#toggleImages").click(function() {
+            $(".image-container").fadeToggle();
+        });
+
+        // Show individual heart when its "Show" button is clicked
+        $(".showButton").click(function() {
+            var target = $(this).data("target");
+            $("#" + target + " img").fadeIn();
+            $("#" + target + " .showButton").hide();
+            $("#" + target + " .hideButton").show();
+        });
+
+        // Hide individual heart when its "Hide" button is clicked
+        $(".hideButton").click(function() {
+            var target = $(this).data("target");
+            $("#" + target + " img").fadeOut();
+            $("#" + target + " .showButton").show();
+            $("#" + target + " .hideButton").hide();
+        });
+
+        // Delete the main draggable heart
+        $("#deleteHeart").click(function() {
+            $(".heart").fadeOut();
+        });
+
+        // Random Valentine Text Button
+        var messages = [
+            "You're the love of my life ❤️",
+            "Be mine forever 💕",
+            "Happy Valentine's Day! 😘",
+            "You make my heart skip a beat 💓",
+            "Love you to the moon and back 🌙",
+            "You're the best thing that ever happened to me 😍"
+        ];
+
+        $("#randomText").click(function() {
+            var randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            $("#randomMessage").text(randomMessage);
+        });
+    });
+</script>
+</body>
+</html>
+
