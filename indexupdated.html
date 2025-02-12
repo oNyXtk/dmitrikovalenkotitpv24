@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <title>Dmitri Koduleht</title>
+  <link rel="stylesheet" href="koduleht2.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js" integrity="sha256-AlTido85uXPlSyyaZNsjJXeCs07eSv3r43kyCVc8ChI=" crossorigin="anonymous"></script>
+
+  <script>
+    function punaseks(){
+      $('#tekst').css('color','red');
+    }
+    function siniseks(){
+      $('h1').css('color','blue');
+    }
+    function mustaks(){
+      $('h1, #tekst').css('color','black');
+    }
+    var lahti = true;
+    function naitapeida(){
+      $('#tekst').slideToggle();
+      lahti = !lahti;
+      $('#knopka').val(lahti ? "Peida" : "Näita");
+    }
+    function slideDownText() {
+      $('h1, #tekst').slideDown(1000);
+    }
+    function slideUpText() {
+      $('h1, #tekst').slideUp(1000);
+    }
+    function stopAnimation() {
+      $('h1, #tekst').stop(true, true);
+    }
+    function bounceImage() {
+      $('#pilt').effect("bounce", { times: 3, distance: 20 }, 800);
+    }
+    function start(){
+      $('#tekst').mouseenter(punaseks);
+      $('h1').mouseenter(siniseks);
+      $('h1, #tekst').mouseleave(mustaks);
+      $('#pilt, #tekst, h1').draggable();
+    }
+    $(document).ready(function() {
+      $('body').on('mouseenter', '#tekst', punaseks);
+      $('body').on('mouseenter', 'h1', siniseks);
+      $('body').on('mouseleave', '#tekst, h1', mustaks);
+      $('body').on('click', '#pilt', bounceImage);
+    });
+  </script>
+</head>
+<body onload="start()">
+<header>
+  <h1>Dmitri Kovalenko tööde leht</h1>
+</header>
+<nav>
+  <ul>
+    <li><a href="kodu.html">Kodu</a></li>
+    <li><a href="sonavara.html">Sõnavara</a></li>
+    <li><a href="tehtud_tood.html">Tehtud tööd</a></li>
+    <li><a href="kasutatud_lingid.html">Kasulikud lingid</a></li>
+    <li><a href="jquery_commands.html">jQuery Commands</a></li>
+  </ul>
+</nav>
+<main>
+  <section>
+    <h2>Info Minust....</h2>
+    <div>Ma olen õpilane. Minu hoobid on mängida arvuti mänge. Ma õpin Titpv24 rühmas.</div>
+  </section>
+</main>
+<footer>
+  <strong>Dmitri Kovalenko &copy; 2024</strong>
+</footer>
+<div>
+  <input type="button" value="--->" onclick="$('#tekst, h1').animate({left:'600px'}, 2500)">
+  <input type="button" value="<---" onclick="$('#tekst, h1').animate({left:'0px'}, 2500)">
+  <input type="button" value="peida" id="knopka" onclick="naitapeida()">
+  <input type="button" value="Slide Down" onclick="slideDownText()">
+  <input type="button" value="Slide Up" onclick="slideUpText()">
+  <input type="button" value="Stop" onclick="stopAnimation()">
+  <br>
+  <h1>Click on image to make it bounce</h1>
+  <img src="IMG.png" alt="den" id="pilt" width="250px" onclick="bounceImage()">
+</div>
+</body>
+</html>
