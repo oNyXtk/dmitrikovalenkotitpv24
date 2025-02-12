@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Vormist lugemine</title>
+    <script src="vormScript.js"></script>
+    <link rel="stylesheet" href="jsStyle.css">
+</head>
+<body>
+<h1>Vormist lugemine JS abil</h1>
+<form action="">
+    <label for="nimi">Sisesta nimi</label>
+    <input type="text" name="nimi" id="nimi">
+    <br>
+    <label for="pnimi">Sisesta perekonnanimi</label>
+    <input type="text" name="nimi" id="pnimi">
+    <br>
+    <label for="varv">Vali vastuse värv</label>
+    <input type="color" id="varv">
+    <br>
+    <input type="radio" name="sugu" id="mees">
+    <label for="mees"> mees</label>
+    <br>
+    <input type="radio" name="sugu" id="naine">
+    <label for="naine"> naine</label>
+    <br><br>
+    <label for="synipaev">Vali oma sünnipäev</label>
+    <input type="date" name="synnipaev" id="synipaev" >
+
+    <br>
+    <input type="arv">Kus numbril ? (max 100 number)</label
+    <input type="number" id="number" name="number" max="100">
+    <br>
+    <input type="email">Siseta email address</label
+    <input type="email" id="email" name="email" required @ >
+    <br>
+    <input type="tel">Siseta oma telefoni numbril</label
+    <input type="tel" id="tel" name="tel" >
+    <br>
+    <input type="url">Siseta oma URL</label
+    <input type="url" id="url" name="url" >
+
+
+    <div id="vastus"></div>
+    <input type="button" value="ok" onclick="lugemine2()">
+</form>
+
+</body>
+</html>

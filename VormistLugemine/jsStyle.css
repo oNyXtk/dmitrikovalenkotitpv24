@@ -1,0 +1,40 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: skyblue;
+}
+
+h1{
+    background-color: mediumaquamarine;
+    border: solid 1px mediumaquamarine;
+    padding: 15px;
+    text-align: center;
+    border-radius: 15px;
+    border-color: lightcoral;
+    border-style: solid;
+}
+input[type=text], input[type=button]{
+    padding: 5px;
+border: solid 1px lightpink;
+border-radius: 15px;
+    width: 100px;
+}
+
+input[type=color]{
+    border: solid 1px red;
+    border-radius: 10px;
+}
+form{
+    width: 60%;
+    height: 60%;
+    border: solid 1px red;
+    border-radius: 15px;
+    text-align: left;
+    margin-left: 120px;
+    padding: 15px;
+}
+
+input[type=url]{
+    border: solid 1px red;
+    border-radius: 10px;
+    text-align: center;
+}

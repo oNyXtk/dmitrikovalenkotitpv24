@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    <link rel="stylesheet" href="queryStyle.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js" integrity="sha256-AlTido85uXPlSyyaZNsjJXeCs07eSv3r43kyCVc8ChI=" crossorigin="anonymous"></script>
+    <script>
+        function punaseks(){
+            $('#tekst').css('color','red');
+        }
+        function siniseks(){
+            $('h1').css('color','blue');
+        }
+        function mustaks(){
+            $('h1,#tekst').css('color','black');
+        }
+        //kui vajutad nuppu -peida siis tekst vahetakse Näita//
+        var lahti=true;
+        function naitapeida(){
+            $('#tekst').slideToggle();
+            if(lahti){
+                lahti=false;
+                $('#knopka').val("Näita");
+            } else{
+                lahti=true;
+                $('#knopka').val("Peida");
+            }
+        }
+        function slideDownText() {
+            $('h1,#tekst').slideDown(1000);
+        }
+
+        function slideUpText() {
+            $('h1,#tekst').slideUp(1000);
+        }
+
+        function stopAnimation() {
+            $('h1,#tekst').stop(true, true);
+        }
+
+
+        function bounceImage() {
+            $('#pilt').effect("bounce", { times: 3, distance: 20 }, 800); // Bounce 3 times, distance 20px, duration 800ms
+        }
+
+        function start(){
+            $('#tekst').mouseenter(punaseks);
+            $('h1').mouseenter(siniseks);
+            $('h1, #tekst').mouseleave(mustaks);
+            $('#pilt').draggable();
+            $('#tekst').draggable();
+            $('h1').draggable();}
+
+
+    </script>
+</head>
+<body onload="start()">
+<h1>jQuery kasutamine</h1>
+<div id="tekst">
+    jQury CDN - JQuery raamatukogu, mis on kätte saadav internetis.
+    <br>
+    jQuery on JavaScripti teek, mis keskendub JavaScripti ja HTML-i vastastikusele mõjule
+</div>
+<input type="button" value="--->"
+       onclick="$('#tekst, h1').animate({left:'600px'}, 2500)">
+<input type="button" value="<---"
+       onclick="$('#tekst, h1').animate({left:'0px'}, 2500)">
+<input type="button" value="peida" id="knopka" onclick="naitapeida()">
+<input type="button" value="Slide Down" onclick="slideDownText()">
+<input type="button" value="Slide Up" onclick="slideUpText()">
+<input type="button" value="Stop" onclick="stopAnimation()">
+<br>
+<h1>click on image to make it bounce</h1>
+<img src="img.png" alt="ridik" id="pilt" width="320px" onclick="bounceImage()">
+</body>
+</html>

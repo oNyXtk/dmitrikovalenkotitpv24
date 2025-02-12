@@ -1,0 +1,67 @@
+body{
+    font-family: Georgia, serif; /*fondi tüüp*/
+    background-color: lemonchiffon; /*taust*/
+}
+input[type=text] {
+    width: 70%;
+    padding: 20px;
+    margin: 15px;
+    box-sizing: border-box;
+    border: 1px solid pink;
+    border-bottom: 1px solid red;
+    border-radius: 20px;
+    background-color: pink;
+    color: aliceblue; /*teksti värv*/
+}
+
+/*radio nupud*/
+input[type=radio]:checked + label {
+    padding: 5px;
+    background-color: aqua;
+    box-sizing: border-box;
+    font-size: 10px;
+    border-bottom: aqua;
+}
+select {
+    width: 70%;
+    padding: 15px;
+    margin: 15px;
+    box-sizing: border-box;
+    border: 1px solid pink;
+    border-bottom: 1px solid red;
+    border-radius: 20px;
+    background-color: pink;
+    color: aliceblue; /*teksti värv*/
+    cursor: pointer;
+
+}
+input[type=reset], input[type=button]{
+        width: 70%;
+        padding: 20px;
+        margin: 20px;
+        box-sizing: border-box;
+        border: 1px solid pink;
+        border-radius: 20px;
+        background-color: greenyellow;
+        cursor: pointer;
+    }
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 30px;
+    height: 25px;
+    border: 2px solid black;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+input[type="checkbox"]:checked {
+    background-color: lightcoral;
+    border-color: blue;
+}
+
+input[type="checkbox"]:hover {
+    border-color: aqua;
+}

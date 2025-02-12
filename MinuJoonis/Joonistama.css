@@ -1,0 +1,15 @@
+canvas#tahvel{
+    width: 50%;
+    background-color: lightgray;
+    border: 1px solid black;
+}
+canvas#lipp{
+    border: 1px solid black;
+}
+canvas#Image{
+    border: 1px solid black;
+}
+
+canvas#pyhi{
+    border: 1px solid black;
+}

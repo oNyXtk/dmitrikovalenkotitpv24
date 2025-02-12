@@ -1,0 +1,154 @@
+/* General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #f7f7f7, #c9d6ff); /* Light gradient background */
+    color: #333;
+}
+
+/* Header */
+header {
+    background: #4a4e69; /* Dark muted blue */
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 3px solid #9a8c98; /* Accent border */
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #22223b; /* Dark blue-gray */
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+nav li a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #f2e9e4; /* Light beige */
+    font-size: 1.1em;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav li a:hover {
+    background-color: #9a8c98; /* Accent hover */
+    color: #fff;
+    border-radius: 5px;
+}
+
+/* Main Content Section */
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+main section {
+    background-color: #ffffff; /* White content box */
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+main h2 {
+    color: #4a4e69;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #9a8c98;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+main div {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    background-color: #4a4e69;
+    color: #f2e9e4;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.9em;
+}
+
+/* Button Styling */
+button {
+    padding: 10px 15px;
+    background-color: #4a4e69;
+    color: #f2e9e4;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #9a8c98;
+    color: #fff;
+}
+
+#gallery img {
+    max-width: 150px;
+    margin: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#gallery img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.link-container {
+    display: flex;
+    gap: 10px;
+}
+
+.link-container a {
+    text-decoration: none;
+    color: red;
+}
+
+.link-container a:hover {
+    text-decoration: underline;
+}
+
+.rounded-name {
+    display: inline-block; /* Ensures the border wraps around the text */
+    padding: 15px 25px; /* Adds space inside the border */
+    border: 3px solid blueviolet; /* Black border (you can change the color) */
+    border-radius: 50px; /* Makes the border rounded */
+    font-size: 40px; /* Adjust the font size if needed */
+    font-weight: bold; /* Optional: makes the text bold */
+    color: violet; /* Text color (you can change it) */
+    text-align: center;
+}
+
